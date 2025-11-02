@@ -51,6 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerResponseDTO getCustomerById(Long id) {
         Customer customer= customerRepository.findById(id).orElseThrow(()->new RuntimeException("Customer not found"));
         return CustomerResponseDTO.builder().
+                id(customer.getId()).
                 name(customer.getName()).
                 email(customer.getEmail()).
                 phoneNumber(customer.getPhoneNumber()).
